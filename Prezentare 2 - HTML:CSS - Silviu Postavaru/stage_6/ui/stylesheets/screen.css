@@ -1,0 +1,339 @@
+/*
+	HTML5 Reset :: style.css
+	----------------------------------------------------------
+	We have learned much from/been inspired by/taken code where offered from:
+	
+	Eric Meyer					:: http://ericmeyer.com
+	HTML5 Doctor				:: http://html5doctor.com
+	and the HTML5 Boilerplate	:: http://html5boilerplate.com
+	
+-------------------------------------------------------------------------------*/
+/* Let's default this puppy out
+-------------------------------------------------------------------------------*/
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+article, aside, figure, footer, header, hgroup, nav, section {
+  display: block;
+}
+
+/* Responsive images and other embedded objects
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+   If this default setting for images is causing issues, you might want to replace it with a .responsive class instead. */
+img,
+object,
+embed {
+  max-width: 100%;
+}
+
+/* force a vertical scrollbar to prevent a jumpy page */
+html {
+  overflow-y: scroll;
+}
+
+/* we use a lot of ULs that aren't bulleted. 
+	don't forget to restore the bullets within content. */
+ul {
+  list-style: none;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+input[type="radio"] {
+  vertical-align: text-bottom;
+}
+
+input[type="checkbox"] {
+  vertical-align: bottom;
+  *vertical-align: baseline;
+}
+
+/* Accessible focus treatment
+	people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active {
+  outline: none;
+}
+
+/* hand cursor on clickable elements */
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+button {
+  cursor: pointer;
+}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {
+  margin: 0;
+}
+
+/* make buttons play nice in IE */
+button {
+  width: auto;
+  overflow: visible;
+}
+
+/* these work great with modernizr */
+.ie7 img {
+  -ms-interpolation-mode: bicubic;
+}
+
+.ie6 html {
+  filter: expression(document.execCommand("BackgroundImageCache", false, true));
+}
+
+.ie6 input {
+  vertical-align: text-bottom;
+}
+
+/* fancy stuff */
+::-moz-selection {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-shadow: none;
+}
+
+::selection {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-shadow: none;
+}
+
+/*	j.mp/webkit-tap-highlight-color */
+a:link {
+  -webkit-tap-highlight-color: #fcd700;
+}
+
+/* Author: Silviu Postavaru */
+/* This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. http://creativecommons.org/licenses/by-nc-sa/3.0/ */
+body {
+  width: 800px;
+  margin: 100px auto 40px;
+  padding-left: 160px;
+  position: relative;
+  font-family: Arial, "Helvetica Neue";
+  font-size: 14px;
+  line-height: 20px;
+  color: #333;
+  background: #fff;
+}
+
+h1, h2, h3, h4, p {
+  margin: 0 0 20px;
+}
+
+h1, h2, h3, h4 {
+  font-weight: normal;
+}
+
+a {
+  color: #df1465;
+}
+
+a:hover {
+  color: #000;
+}
+
+/* Header */
+.header {
+  position: absolute;
+  left: 0;
+  top: -60px;
+}
+.header h1 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 160px;
+  font-size: 18px;
+  font-weight: normal;
+  height: 40px;
+  background: url(../images/logo-webdev.png) left 50% no-repeat;
+  text-indent: -9999em;
+}
+.header p {
+  margin-left: 180px;
+  color: #999;
+  font-style: italic;
+}
+
+/* Main area */
+
+.answers {
+  width: 520px;
+  float: left;
+  padding: 20px;
+}
+.answers ol li,
+.answers .question {
+  position: relative;
+  padding-bottom: 19px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+  list-style: none;
+}
+.answers .question {
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 0;
+}
+.answers h1 {
+  font-size: 24px;
+}
+.answers h2 {
+  font-size: 18px;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0 9px;
+}
+.answers aside {
+  color: #999;
+  font-size: 11px;
+}
+.answers aside time {
+  color: #333;
+}
+
+.democracy {
+  position: absolute;
+  right: 540px;
+  top: 0;
+  text-align: center;
+}
+.democracy strong {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 40px;
+  color: #999;
+}
+.democracy a {
+  display: block;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  text-indent: -9999em;
+  margin: 0 auto;
+}
+.democracy .btn-vote_up {
+  border-bottom-color: #999;
+}
+.democracy .btn-vote_up:hover {
+  border-bottom-color: #333;
+}
+.democracy .btn-vote_down {
+  border-top-color: #999;
+}
+.democracy .btn-vote_down:hover {
+  border-top-color: #333;
+}
+
+.upvoted .btn-vote_up {
+  border-bottom-color: #DF1465;
+}
+
+.downvoted .btn-vote_down {
+  border-top-color: #DF1465;
+}
+
+.related_questions {
+  width: 200px;
+  float: left;
+  padding: 20px;
+}
+.related_questions h2 {
+  font-size: 16px;
+  padding-top: 20px;
+}
+.related_questions h3 {
+  margin-bottom: 0;
+}
+.related_questions p {
+  color: #999;
+  font-size: 11px;
+}
+.related_questions p time {
+  color: #333;
+}
+.related_questions li {
+  list-style: none;
+}
+
+.pagination .btn-more {
+  display: inline-block;
+  background: #df1465;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 12px;
+  text-decoration: none;
+}
+.pagination .btn-more:hover {
+  background: #333;
+  cursor: pointer;
+}
+
+.add_answer p,
+.add_question p {
+  margin-bottom: 10px;
+}
+.add_answer label,
+.add_question label {
+  display: block;
+  margin-bottom: 5px;
+}
+.add_answer input,
+.add_question input {
+  width: 80%;
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+.add_answer textarea,
+.add_question textarea {
+  width: 90%;
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+.add_answer button,
+.add_question button {
+  display: inline-block;
+  background: #df1465;
+  color: #fff;
+  padding: 5px 10px;
+  height: 30px;
+  font-size: 12px;
+  border: none;
+  text-decoration: none;
+}
+.add_answer button:hover,
+.add_question button:hover {
+  background: #333;
+  cursor: pointer;
+}
+
+.add_answer {
+  margin-top: 19px;
+  border-top: 2px solid #ddd;
+  padding-top: 19px;
+}
+.add_answer h2 {
+  border: none;
+  padding: 0;
+}
+
+
+/* Footer */
+.closer {
+  border-top: 1px solid #ddd;
+  position: relative;
+  top: 30px;
+  padding: 30px 20px 50px;
+  font-size: 12px;
+  clear: both;
+}
