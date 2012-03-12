@@ -1,0 +1,99 @@
+Tagent
+======
+
+* what ruby does
+* what programming means
+* why/when we use it
+
+Basics
+======
+
+* IRB - a repl is amazing
+
+* optional parens
+
+* optional return
+
+* class system
+
+* instance variables, accessors.
+  * variables and methods accessed the same way
+
+* strings and string escaping, heredocs
+
+* defining a class in ruby
+  * reopening a class in ruby
+    * why that's good
+    * why that's bad
+
+* doing horrible things with monkeypatching
+  * clasa oribila a lui maxim
+
+* seeing where things are defined
+  * __location__
+  * __file__
+  * __line__
+
+* scope
+
+* closures
+
+* blocks
+  * what they're good for
+
+* modules
+  * what modules are
+  * why use modules
+  * when to use modules
+  * import / extend
+
+* enumerable
+  * mix enumerable into something
+  * show functionality
+
+Intermediate
+============
+
+* differences between blocks and procs
+
+* procs
+  * what they're good for
+
+* classes
+  * flat scope
+
+* `method_missing`
+
+* tests
+  * what's an assert
+  * standard test unit things
+  * http://rubykoans.com/
+  * go through a reasonable number of them
+
+* exceptions
+  * what's an exception
+  * raise / rescue / throw / catch
+
+* libraries
+  * how to get them
+  * where they are
+
+Sinatra
+=======
+
+* gem install sinatra:
+
+* ce vrem sa facem
+* would be nice to keep score
+* object lifetime
+
+* facem un test care sa arate feature-ul la care vrem sa ajungem
+* obiectul omg database
+* functie pe clasa ( zomg static )
+* nu facem hash-uri, ca ne place oop and things
+
+... 
+build things
+...
+
+* TDD - omg
