@@ -1,0 +1,19 @@
+Instalare de dependente:
+- Instalati-va sqlite3 daca nu il aveti deja: sudo apt-get install sqlite3 libsqlite3-devel
+- Rulati:
+  $sudo apt-get install build-essential libssl-dev libreadline5 libreadline5-dev zlib1g zlib1g-dev
+
+Exercitiul 0:
+1) Studiati fisierele din folder-ul db/migrate
+2) Rulati in terminal comanda "rake db:migrate"
+
+Exercitiul 1: Salvati raspunsul in baza de date
+1) Mergeti in metoda "/response" si adaugati sub "TODO", codul care adauga Raspunsul introdus in formular,
+in baza de date
+
+Exercitiul 2: Terminati autentificarea
+1) Adaugati coloana "salt", care va avea tipul "string", la tabela "users"
+2) Studiati metodele din clasa User, vedeti unde sunt apelate in cod, dupa care studiati TODO-urile
+   si rezolvati
+3) Acum ca avem utilizatorii creati, modificati codul in crearea de intrebari si crearea de raspunsuri,
+   astfel incat utilizatorul asociat acestora sa fie utilizatorul logat

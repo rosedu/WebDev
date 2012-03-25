@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en" class="no-js"><!--<![endif]-->
+	<head>
+		<meta charset="UTF-8" />
+    <link href="/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
+	</head>
+<body class="questions_show">
+  <section class="header">
+    <h1>
+      <a href="#">WebDev Overflow</a>
+    </h1>
+    <p>Locul in care poti sa pui cele mai inteligente intrebari,<br /> ca sa poti primi cele mai inteligente raspunsuri.</p>
+  </section>
+
+  <section class="authorisation">
+    <% if current_user.nil? %>
+      <a href="/sign_up" >Sign Up</a>
+      <a href="/sign_in" >Sign In</a>
+    <% else %>
+      <a href="/sign_out">Sign Out</a>
+    <% end %>
+  </section>
+
+  <section class="answers">
+    <p><a href="/">&larr; inapoi la intrebari</a></p>
+    <article class="question upvoted">
+      <div class="democracy"><a href="#" class="btn-vote_up">up vote</a> <strong>28</strong> <a href="#" class="btn-vote_down">down vote</a></div>
+      <h1><%= @question.title %></h1>
+      <div class="description">
+        <p>
+          <%= @question.description %>
+        </p>
+      </div>
+      <aside>
+        Categorie: <a href="#"><%= @question.category.name %></a> &middot; Data intrebarii: <time dtime="12-12-2012">acum 5 ore</time>  &middot; Intrebat de: <a href="mailto:email@email.com"><%= @question.user.name %></a>
+      </aside>
+    </article>
+    <h2>Raspunsuri</h2>
+    <ol>
+      <% @responses.each do |response| %>
+        <li class="downvoted">
+          <div class="democracy"><a href="#" class="btn-vote_up">up vote</a> <strong><%= response.score %></strong> <a href="#" class="btn-vote_down">down vote</a></div>
+          <div class="answer">
+            <%= response.description %>
+          </div>
+          <aside>
+            Raspuns la: <time dtime="12-12-2012">acum 5 ore</time>  &middot; Raspuns de: <a href="mailto:email@email.com">Silviu Postavaru</a>
+          </aside>
+        </li>
+      <% end %>
+   </ol>
+    <div class="pagination">
+      <a href="#" class="btn-more">mai multe</a>
+    </div>
+    <section class="add_answer">
+      <h2>Raspunde si tu</h2>
+      <form method="POST" action="/response">
+        <p>
+          <label>Nume:</label>
+          <input type="text" size="30" name="author[name]" />
+        </p>
+        <p>
+          <label>Email:</label>
+          <input type="text" size="30" name="author[email]" />
+        </p>
+        <p>
+          <label>Raspunsul tau:</label>
+          <textarea cols="80" rows="8" name="response[description]"></textarea>
+        </p>
+        <input name="question_id" value="<%= @question.id %>" type="hidden" />
+        <p><button>trimite raspuns</button></p>
+      </form>
+    </section>
+  </section>
+
+  <section class="related_questions">
+    <h2>Din aceasi categorie</h2>
+    <ol>
+      <li>
+        <h3><a href="#">This is the question title</a></h3>
+        <p>Data intrebarii: <time dtime="12-12-2012">acum 5 ore</time> &middot; Data ultimului raspuns: <time dtime="12-12-2012">acum 3 minute</time></p>
+      </li>
+      <li>
+        <h3><a href="#">This is the question title</a></h3>
+        <p>Data intrebarii: <time dtime="12-12-2012">acum 5 ore</time> &middot; Data ultimului raspuns: <time dtime="12-12-2012">acum 3 minute</time></p>
+      </li>
+      <li>
+        <h3><a href="#">This is the question title</a></h3>
+        <p>Data intrebarii: <time dtime="12-12-2012">acum 5 ore</time> &middot; Data ultimului raspuns: <time dtime="12-12-2012">acum 3 minute</time></p>
+      </li>
+      <li>
+        <h3><a href="#">This is the question title</a></h3>
+        <p>Data intrebarii: <time dtime="12-12-2012">acum 5 ore</time> &middot; Data ultimului raspuns: <time dtime="12-12-2012">acum 3 minute</time></p>
+      </li>
+      <li>
+        <h3><a href="#">This is the question title</a></h3>
+        <p>Data intrebarii: <time dtime="12-12-2012">acum 5 ore</time> &middot; Data ultimului raspuns: <time dtime="12-12-2012">acum 3 minute</time></p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="closer">
+    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.<br />
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+  </section>
+</body>
+</html>
