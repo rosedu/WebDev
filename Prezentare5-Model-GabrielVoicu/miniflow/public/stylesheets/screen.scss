@@ -1,0 +1,288 @@
+@import "reset.scss";
+
+/* Author: Silviu Postavaru */
+/* This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. http://creativecommons.org/licenses/by-nc-sa/3.0/ */
+
+html {
+}
+body {
+  width: 800px;
+  margin: 100px auto 40px;
+  padding-left: 160px;
+  position: relative;
+  font-family: Arial, "Helvetica Neue";
+  font-size: 14px;
+  line-height: 20px;
+  color: #333;
+  background: #fff;
+}
+h1, h2, h3, h4, p {
+  margin: 0 0 20px;
+}
+h1, h2, h3, h4 {
+  font-weight: normal;
+}
+a {
+  color: #df1465;
+}
+a:hover {
+  color: #000;
+}
+
+
+/* Header */
+
+.header {
+  position: absolute;
+  left: 0;
+  top: -60px;
+  h1 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 160px;
+    font-size: 18px;
+    font-weight: normal;
+    height: 40px;
+    background: url(../images/logo-webdev.png) left 50% no-repeat;
+    text-indent: -9999em;
+  }
+  p {
+    margin-left: 180px;
+    color: #999;
+    font-style: italic;
+  }
+}
+
+/* Main area */
+.questions {
+  width: 520px;
+  float: left;
+  padding: 20px;
+  header {
+    position: relative;
+    padding-right: 80px;
+    a {
+      position: absolute;
+      right: 20px;
+      top: 5px;
+      display: inline-block;
+      background: #df1465;
+      color: #fff;
+      padding: 5px 10px;
+      font-size: 12px;
+      text-decoration: none;
+      &:hover {
+        background: #333;
+      }
+    }
+  }
+  ol {
+    list-style: none;
+  }
+  h1 {
+    font-size: 24px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 18px;
+    margin: 0 0 5px;
+  }
+  p {
+    color: #999;
+    font-size: 11px;
+    time {
+      color: #333;
+    }
+  }
+  li {
+    position: relative;
+  }
+}
+
+.answers {
+  width: 520px;
+  float: left;
+  padding: 20px;
+  ol li,
+  .question {
+    position: relative;
+    padding-bottom: 19px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+    list-style: none;
+  }
+  .question {
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 0;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 18px;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0 9px;
+  }
+  aside {
+    color: #999;
+    font-size: 11px;
+    time {
+      color: #333;
+    }
+  }
+}
+
+.democracy {
+  position: absolute;
+  right: 540px;
+  top: 0;
+  text-align: center;
+  strong {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 40px;
+    color: #999;  
+  }
+  a {
+    display: block;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    text-indent: -9999em;
+    margin: 0 auto;
+  }
+  .btn-vote_up {
+    border-bottom-color: #999;
+    &:hover {
+      border-bottom-color: #333;
+    }
+  }
+  .btn-vote_down {
+    border-top-color: #999;
+    &:hover {
+      border-top-color: #333;
+    }
+  }
+}
+.upvoted {
+  .btn-vote_up {
+    border-bottom-color: #DF1465;
+  }
+}
+.downvoted {
+  .btn-vote_down {
+    border-top-color: #DF1465;
+  }
+}
+
+
+.categories {
+  width: 200px;
+  float: left;
+  padding: 20px;
+  h3 {
+    font-size: 16px;
+    padding-top: 20px;
+  }
+}
+.related_questions {
+  width: 200px;
+  float: left;
+  padding: 20px;
+  h2 {
+    font-size: 16px;
+    padding-top: 20px;
+  }
+  h3 {
+    margin-bottom: 0;
+  }
+  p {
+    color: #999;
+    font-size: 11px;
+    time {
+      color: #333;
+    }
+  }
+  li {
+    list-style: none;
+  }
+}
+
+.pagination {
+  .btn-more {
+    display: inline-block;
+    background: #df1465;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    text-decoration: none;
+    &:hover {
+      background: #333;
+      cursor: pointer;
+    }
+  }
+}
+
+.add_answer,
+.add_question {
+  p {
+    margin-bottom: 10px;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  input {
+    width: 80%;
+    padding: 5px;
+    border: 1px solid #ddd;
+  }
+  textarea {
+    width: 90%;
+    padding: 5px;
+    border: 1px solid #ddd;
+  }
+  button {
+    display: inline-block;
+    background: #df1465;
+    color: #fff;
+    padding: 5px 10px;
+    height: 30px;
+    font-size: 12px;
+    border: none;
+    text-decoration: none;
+    &:hover {
+      background: #333;
+      cursor: pointer;
+    } 
+  }
+}
+.add_answer {
+  margin-top: 19px;
+  border-top: 2px solid #ddd;
+  padding-top: 19px;
+  h2 {
+    border: none;
+    padding: 0;
+  }
+}
+.add_question {
+  width: 518px;
+  display: none;
+  padding: 20px 20px 10px;
+  border: 1px solid #ddd;
+  h2 {
+    font-size: 18px;
+  }
+}
+
+/* Footer */
+.closer {
+  border-top: 1px solid #ddd;
+  position: relative;
+  top: 30px;
+  padding: 30px 20px 50px;
+  font-size: 12px;
+  clear: both;
+}

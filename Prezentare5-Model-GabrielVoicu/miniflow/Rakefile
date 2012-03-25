@@ -1,0 +1,2 @@
+require File.expand_path("../miniflow", __FILE__)
+require 'sinatra/activerecord/rake'

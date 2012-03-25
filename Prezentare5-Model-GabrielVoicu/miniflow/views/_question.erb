@@ -1,0 +1,5 @@
+<li>
+  <div class="democracy"><strong><%= question.rating %></strong></div>
+  <h2><a href="/question/<%= id + 1 %>-<%= slugify(question.title) %>"><%= question.title %></a></h2>
+  <p>Categorie: <a href="#"><%= question.category.name %></a> &middot; Data intrebarii: <time dtime="<%= question.created_at %>"><%= question.created_at %></time> &middot; Data ultimului raspuns: <time dtime="12-12-2012">acum 3 minute</time></p>
+</li>

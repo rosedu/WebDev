@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en" class="no-js"><!--<![endif]-->
+	<head>
+		<meta charset="UTF-8" />
+		<link href="/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+	</head>
+<body class="questions_index">
+  <section class="header">
+    <h1>
+      <a href="#">WebDev Overflow</a>
+    </h1>
+    <p>Locul in care poti sa pui cele mai inteligente intrebari,<br /> ca sa poti primi cele mai inteligente raspunsuri.</p>
+  </section>
+  <section class="authorisation">
+    <% if current_user.nil? %>
+      <a href="/sign_up" >Sign Up</a>
+      <a href="/sign_in" >Sign In</a>
+    <% else %>
+      <a href="/sign_out">Sign Out</a>
+    <% end %>
+  </section>
+
+  <section class="add_question">
+    <h2>Pune o intrebare</h2>
+    <form method="POST" action="/questions">
+      <p>
+        <label for="name">Nume:</label>
+        <input id="name" name="author[name]" type="text" size="30" />
+      </p>
+      <p>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="author[email]" size="30" />
+      </p>
+      <p>
+        <label for="title">Titlu:</label>
+        <input type="text" id="title" name="question[title]" size="30" />
+      </p>
+      <p>
+        <label for="description">Descrierea problemei:</label>
+        <textarea cols="80" rows="8" id="description" name="question[description]"></textarea> 
+      </p>
+      <p>
+        <label>Din categoria:</label>
+        <select name="category">
+          <% @categories.each do |category| %>
+            <option><%= category.name %></option>
+          <% end %>
+        </select>
+      </p>
+      <p>
+        <button>Trimite intrebarea</button> &middot; <a href="#" class="btn-cancel_question">renunta</a>
+      </p>
+    </form>
+  </section>
+  <section class="questions">
+    <header>
+      <h1>Cele mai active intrebari</h1>
+      <a href="#" class="btn-add_question">Intreba ceva</a>
+    </header>
+    <ol>
+      <% @questions.each_with_index do |question, index| %>
+        <%= erb :_question, :locals => { :question => question, :id => index } %>
+      <% end %>
+    </ol>
+    <div class="pagination">
+      <a href="#" class="btn-more">inca 10 intrebari</a>
+    </div>
+  </section>
+  <section class="categories">
+    <h3>Categorii</h3>
+    <ul>
+      <% @categories.each do |category| %>
+        <li><a href="#"><%= category.name %></a></li>
+      <% end %>
+    </ul>
+  </section>
+  <section class="closer">
+    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.<br />
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+  </section>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".btn-add_question").click(function(e) {
+        e.preventDefault();
+        $(this).fadeOut(400);
+        $(".add_question").slideDown(400);
+      });
+      $(".btn-cancel_question").click(function(e) {
+        e.preventDefault();
+        $(".btn-add_question").fadeIn(400);
+        $(".add_question").slideUp(400);
+      })
+    });
+  </script>
+</body>
+</html>
