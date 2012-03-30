@@ -61,17 +61,10 @@ class Miniflow < Sinatra::Base
   enable :sessions
   #enable :cookies
 
-  CATEGORIES = %w[ ruby sinatra web development ]
   configure do
     #set :questions, []
     #set :categories, CATEGORIES
     set :database, "sqlite://development.sql"
-
-    if Category.all.size == 0
-      CATEGORIES.each do |category|
-        Category.create!(:name => category)
-      end
-    end
   end
 
   helpers do
