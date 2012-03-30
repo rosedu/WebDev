@@ -62,8 +62,6 @@ class Miniflow < Sinatra::Base
   #enable :cookies
 
   configure do
-    #set :questions, []
-    #set :categories, CATEGORIES
     set :database, "sqlite://development.sql"
   end
 
