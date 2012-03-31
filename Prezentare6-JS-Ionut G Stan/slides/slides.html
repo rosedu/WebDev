@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js ie6" lang="en"><![endif]-->
+<!--[if IE 7]>   <html class="no-js ie7" lang="en"><![endif]-->
+<!--[if IE 8]>   <html class="no-js ie8" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=1024, user-scalable=no">
+  <title>JS</title>
+  <link rel="stylesheet" href="deck.js/core/deck.core.css">
+  <link rel="stylesheet" href="deck.js/extensions/goto/deck.goto.css">
+  <link rel="stylesheet" href="deck.js/extensions/status/deck.status.css">
+  <link rel="stylesheet" href="deck.js/extensions/hash/deck.hash.css">
+  <link rel="stylesheet" href="deck.js/themes/style/igstan.css">
+  <script src="deck.js/modernizr.custom.js"></script>
+</head>
+<body class="deck-container">
+
+<!-- Begin slides -->
+<section class="slide">
+  <h1>JS</h1>
+</section>
+
+<section class="slide">
+  <h2>Agenda</h2>
+  <ol>
+    <li>
+      <h3>JavaScript</h3>
+      <p>brief history and language introduction</p>
+    </li>
+    <li>
+      <h3><abbr title="Document Object Model">DOM</abbr></h3>
+      <p>programmatic access to the <abbr title="HyperText Markup Language">HTML</abbr> tree</p>
+    </li>
+    <li>
+      <h3>Events</h3>
+      <p>listening and reacting to changes</p>
+    </li>
+    <li>
+      <h3>Ajax</h3>
+      <p><abbr title="HyperText Transfer Protocol">HTTP</abbr> requests without page reloads</p>
+    </li>
+  </ol>
+</section>
+
+<section class="slide">
+  <h2>Brief History</h2>
+  <ul>
+    <li class="slide">created in 1995 at Netscape</li>
+    <li class="slide">prototype was ready in about <strong>10</strong> days</li>
+    <li class="slide">as such it has some warts</li>
+    <li class="slide">originally called Mocha<span class="slide" style="opacity:1">,
+      then LiveScript</span><span class="slide" style="opacity:1">,
+      then JavaScript</span><span class="slide">,
+      then ECMAScript</span></li>
+    <li class="slide">inspired primarily by <a href="http://schemers.org/">Scheme</a> and <a href="http://selflanguage.org/">Self</a></li>
+    <li class="slide">and Java to some extent</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Brief History</h2>
+  <video src="./brendan-eich.webm" controls tabindex="0"></video>
+</section>
+
+<section class="slide">
+  <h2>Language Intro</h2>
+  <ol>
+    <li>variables and missing values (<code>undefined</code> and <code>null</code>)</li>
+    <li>booleans</li>
+    <li>strings</li>
+    <li>numbers</li>
+    <li>objects</li>
+    <li>arrays</li>
+    <li>functions</li>
+  </ol>
+</section>
+
+<section class="slide">
+  <h2>Variables</h2>
+  <pre class="slide"><span class="kd">var</span> <span class="nx">a</span><span class="p">;</span></pre>
+  <pre class="slide"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span></pre>
+  <pre class="slide"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span></pre>
+  <pre class="slide"><span class="kd">var</span> <span class="nx">middleName</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span></pre>
+</section>
+
+<section class="slide">
+  <h2>Booleans</h2>
+<pre><span class="kd">var</span> <span class="nx">yes</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">no</span>  <span class="o">=</span> <span class="kc">false</span><span class="p">;</span></pre>
+</section>
+
+<section class="slide">
+  <h2>Strings</h2>
+<pre class="slide"><span class="kd">var</span> <span class="nx">usingDoubleQuotes</span> <span class="o">=</span> <span class="s2">&quot;this is a string&quot;</span><span class="p">;</span></pre>
+<pre class="slide"><span class="kd">var</span> <span class="nx">usingSingleQuotes</span> <span class="o">=</span> <span class="s1">&#39;this is a string too&#39;</span><span class="p">;</span></pre>
+<pre class="slide"><span class="kd">var</span> <span class="nx">usefulForEscaping</span> <span class="o">=</span> <span class="s2">&quot;O&#39;Reilly&quot;</span><span class="p">;</span></pre>
+<pre class="slide"><span class="kd">var</span> <span class="nx">orEscapeLikeThis</span>  <span class="o">=</span> <span class="s1">&#39;O\&#39;Reilly&#39;</span><span class="p">;</span></pre>
+  <div class="slide">
+    <pre><span class="nx">js</span><span class="o">&gt;</span> <span class="s2">&quot;foo&quot;</span> <span class="o">+</span> <span class="s2">&quot; bar&quot;</span><span class="p">;</span>
+<span class="s2">&quot;foo bar&quot;</span></pre>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Numbers</h2>
+  <div class="slide">
+<pre><span class="kd">var</span> <span class="nx">integers</span>     <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">doubles</span>      <span class="o">=</span> <span class="mf">1.2</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">octals</span>       <span class="o">=</span> <span class="mi">07</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">hexaDecimals</span> <span class="o">=</span> <span class="mh">0xFF</span><span class="p">;</span></pre>
+  </div>
+  <div class="slide">
+    <pre><span class="nx">js</span><span class="o">&gt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+<span class="mi">3</span></pre>
+  </div>
+  <div class="slide">
+    <pre><span class="nx">js</span><span class="o">&gt;</span> <span class="s2">&quot;foo&quot;</span> <span class="o">+</span> <span class="s2">&quot; bar&quot;</span><span class="p">;</span>
+<span class="s2">&quot;foo bar&quot;</span></pre>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Watch Out!</h2>
+  <div class="slide">
+    <p>What output generates the evaluation of the following expression?</p>
+    <pre><span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">+</span> <span class="s2">&quot; foo &quot;</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span></pre>
+    <ol class="slide">
+      <li><span class="s2">&quot;6 foo 6&quot;</span></li>
+      <li><span class="s2">&quot;24 foo 24&quot;</span></li>
+      <li><span class="s2">&quot;6 foo 24&quot;</span></li>
+      <li><span class="s2">&quot;24 foo 6&quot;</span></li>
+    </ol>
+  </div>
+  <div class="slide">
+    <pre><span class="nx">js</span><span class="o">&gt;</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">+</span> <span class="s2">&quot; foo &quot;</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span><span class="p">;</span>
+<span class="s2">&quot;6 foo 24&quot;</span></pre>
+  </div>
+  <div class="slide">
+    <p>First <code>+</code> performs number addition<span class="slide">, while the rest perform string concatenation.</span></p>
+  </div>
+  <p class="slide">This is a often an interview question.</p>
+</section>
+
+<section class="slide">
+  <h2>Objects</h2>
+  <ol>
+    <li><strong>C</strong>reate</li>
+    <li><strong>R</strong>ead</li>
+    <li><strong>U</strong>pdate</li>
+    <li><strong>D</strong>elete</li>
+  </ol>
+</section>
+
+<section class="slide">
+  <h2>Objects: Create</h2>
+  <p>Mappings from key to value, similar to <code>Map&lt;K, V&gt;</code> in Java.</p>
+  <pre><span class="kd">var</span> <span class="nx">book</span> <span class="o">=</span> <span class="p">{};</span> <span class="c1">// empty object</span></pre>
+<div class="slide">
+  <p>Keys must be strings or numbers.</p>
+  <pre><span class="kd">var</span> <span class="nx">book</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="c1 slide">// pairs are comma-delimited</span>
+  <span class="mi">1</span><span class="o">:</span> <span class="s2">&quot;value&quot;</span>
+<span class="p">};</span></pre>
+</div>
+<div class="slide">
+  <p>But quoting is optional when keys are valid JS identifiers.</p>
+  <pre><span class="kd">var</span> <span class="nx">book</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;illegal JS identifier&quot;</span><span class="o">:</span> <span class="s2">&quot;JavaScript: the Good Parts&quot;</span>
+<span class="p">};</span></pre>
+</div>
+</section>
+
+<section class="slide">
+  <h2>Objects: Create</h2>
+  <p>Values can be anything.</p>
+  <pre><span class="kd">var</span> <span class="nx">book</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;JavaScript: the Good Parts&quot;</span><span class="p">,</span>
+  <span class="nx">pages</span><span class="o">:</span> <span class="mi">172</span><span class="p">,</span>
+  <span class="nx">read</span><span class="o">:</span> <span class="kc">false</span><span class="slide"><span class="p">,</span>
+  <span class="nx">author</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;Douglas&quot;</span><span class="p">,</span>
+    <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Crockford&quot;</span>
+  <span class="p">}</span> <span class="c1 slide">// WARNING! don&#39;t insert comma after last property</span></span>
+<span class="p">};</span></pre>
+</section>
+
+<section class="slide">
+  <h2>Objects: Read</h2>
+  <p>Object properties can be read using:</p>
+  <ol>
+    <li>
+      <h4>Bracket notation</h4>
+      <pre><span class="nx">js</span><span class="o">&gt;</span> <span class="nx">book</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">];</span>
+<span class="s2">&quot;JavaScript: the Good Parts&quot;</span>
+<span class="nx">js</span><span class="o">&gt;</span> <span class="nx">book</span><span class="p">[</span><span class="s2">&quot;read&quot;</span><span class="p">];</span>
+<span class="kc">false</span></pre>
+    </li>
+    <li class="slide">
+      <h4>Dot notation (preferred)</h4>
+      <pre><span class="nx">js</span><span class="o">&gt;</span> <span class="nx">book</span><span class="p">.</span><span class="nx">title</span><span class="p">;</span>
+<span class="s2">&quot;JavaScript: the Good Parts&quot;</span>
+<span class="nx">js</span><span class="o">&gt;</span> <span class="nx">book</span><span class="p">.</span><span class="nx">read</span><span class="p">;</span>
+<span class="kc">false</span>
+<span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="nx">book</span><span class="p">[</span><span class="s2">&quot;illegal JS identifier&quot;</span><span class="p">];</span>
+<span class="kc">undefined</span></span></pre>
+    </li>
+  </ol>
+</section>
+
+<section class="slide">
+  <h2>Objects: Update</h2>
+  <p>Similar to reading:</p>
+  <ol>
+    <li>
+      <h4>Bracket notation</h4>
+      <pre><span class="nx">book</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;JavaScript: the Good Parts&quot;</span><span class="p">;</span>
+<span class="nx">book</span><span class="p">[</span><span class="s2">&quot;read&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="kc">false</span><span class="p">;</span></pre>
+    </li>
+    <li class="slide">
+      <h4>Dot notation (preferred)</h4>
+      <pre><span class="nx">book</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="s2">&quot;JavaScript: the Good Parts&quot;</span><span class="p">;</span>
+<span class="nx">book</span><span class="p">.</span><span class="nx">read</span>  <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="slide"><span class="nx">book</span><span class="p">[</span><span class="s2">&quot;illegal JS identifier&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span></span></pre>
+    </li>
+  </ol>
+</section>
+
+<section class="slide">
+  <h2>Objects: Delete</h2>
+  <p>Performed using the <code>delete</code> keyword.</p>
+  <pre><span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">book</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Title&quot;</span> <span class="p">};</span>
+<span class="kc">undefined</span></span>
+<span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="nx">book</span><span class="p">.</span><span class="nx">title</span><span class="p">;</span>
+<span class="s2">&quot;Title&quot;</span></span>
+<span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="k">delete</span> <span class="nx">book</span><span class="p">.</span><span class="nx">title</span><span class="p">;</span>
+<span class="kc">true</span></span>
+<span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="nx">book</span><span class="p">.</span><span class="nx">title</span><span class="p">;</span></span>
+<span class="slide"><span class="kc">undefined</span></span></pre>
+</section>
+
+<section class="slide">
+  <h2>Arrays</h2>
+  <ol>
+    <li><strong>C</strong>reate</li>
+    <li><strong>R</strong>ead</li>
+    <li><strong>U</strong>pdate</li>
+    <li><strong>D</strong>elete</li>
+  </ol>
+</section>
+
+<section class="slide">
+  <h2>Arrays: Create</h2>
+  <p>An ordered sequence of heterogeneous values.</p>
+  <pre><span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// empty array</span></pre>
+  <pre class="slide"><span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">];</span></pre>
+  <pre class="slide"><span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{}];</span></pre>
+  <pre class="slide"><span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="nx">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span><span class="p">;</span>
+<span class="nx">array</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span><span class="p">;</span>
+<span class="nx">array</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;baz&quot;</span><span class="p">;</span></pre>
+</section>
+
+<section class="slide">
+  <h2>Arrays: Read</h2>
+  <pre><span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{}];</span>
+<span class="kc">undefined</span></span>
+<span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="mi">5</span></span>
+<span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="nx">array</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="s1">&quot;foo&quot;</span></span>
+<span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="nx">array</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+<span class="kc">undefined</span></span>
+<span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="nx">array</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+<span class="nx">SyntaxError</span><span class="o">:</span> <span class="nx">Unexpected</span> <span class="nx">number</span></span></pre>
+</section>
+
+<section class="slide">
+  <h2>Arrays: Update</h2>
+  <pre><span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="nx">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span><span class="p">;</span>
+<span class="nx">array</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span><span class="p">;</span>
+<span class="nx">array</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;baz&quot;</span><span class="p">;</span></pre>
+  <pre class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="nx">array</span><span class="p">;</span>
+<span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">]</span></pre>
+</section>
+
+<section class="slide">
+  <h2>Arrays: Delete</h2>
+  <pre><span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="kc">undefined</span></span>
+<span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="k">delete</span> <span class="nx">array</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="kc">true</span></span>
+<span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="nx">array</span></span>
+<span class="slide"><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">]</span></span></pre>
+  <div class="slide">
+    <h3>Correct Way</h3>
+    <pre><span class="nx">js</span><span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="kc">undefined</span>
+<span class="nx">js</span><span class="o">&gt;</span> <span class="nx">array</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="nx">js</span><span class="o">&gt;</span> <span class="nx">array</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span></pre>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Functions</h2>
+  <pre><span class="kd">var</span> <span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">};</span></pre>
+  <div class="slide">
+    <h3>Methods</h3>
+    <pre><span class="kd">var</span> <span class="nx">audioBook</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">readFromPage</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">page</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">audioBook</span><span class="p">.</span><span class="nx">readFromPage</span><span class="p">(</span><span class="mi">27</span><span class="p">);</span></pre>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Truthiness &amp; Falseness</h2>
+<pre><span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="o">!!</span><span class="kc">true</span><span class="p">;</span>
+<span class="kc">true</span></span>
+<span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="o">!!</span><span class="kc">false</span><span class="p">;</span>
+<span class="kc">false</span></span>
+<span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="o">!!</span><span class="kc">undefined</span><span class="p">;</span>
+<span class="kc">false</span></span>
+<span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="o">!!</span><span class="kc">null</span><span class="p">;</span>
+<span class="kc">false</span></span>
+<span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="o">!!</span><span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="kc">false</span></span>
+<span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="o">!!</span><span class="mi">0</span><span class="p">;</span>
+<span class="kc">false</span></span>
+<span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="o">!!</span><span class="kc">NaN</span><span class="p">;</span>
+<span class="kc">false</span></span>
+<span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="o">!!</span><span class="mi">1</span><span class="p">;</span>
+<span class="kc">true</span></span>
+<span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="o">!!</span><span class="p">{};</span>
+<span class="kc">true</span></span>
+<span class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="o">!!</span><span class="p">[];</span>
+<span class="kc">true</span></span></pre>
+</section>
+
+<section class="slide">
+  <h2>Equality</h2>
+  <ul>
+    <li>equality: <code>==</code> / <code>!=</code></li>
+    <li>strict equality: <code>===</code> / <code>!==</code></li>
+    <li>equality performs type coercion if operands have different types</li>
+    <li>strict equality will return <code>false</code> if types are different</li>
+    <li>use <code>===</code> unless you have really good reasons not to</li>
+    <li>objects, arrays, and functions are compared using reference IDs</li>
+    <li>all other types are compared by their values</li>
+  </ul>
+  <pre class="slide"><span class="nx">js</span><span class="o">&gt;</span> <span class="mi">1</span> <span class="o">===</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kc">true</span>
+<span class="nx">js</span><span class="o">&gt;</span> <span class="s2">&quot;foo&quot;</span> <span class="o">===</span> <span class="s2">&quot;foo&quot;</span><span class="p">;</span>
+<span class="kc">true</span>
+<span class="nx">js</span><span class="o">&gt;</span> <span class="p">[]</span> <span class="o">===</span> <span class="p">[];</span>
+<span class="kc">false</span>
+<span class="nx">js</span><span class="o">&gt;</span> <span class="p">({}</span> <span class="o">===</span> <span class="p">{});</span>
+<span class="kc">false</span></pre>
+</section>
+
+<section class="slide">
+  <h2>Agenda</h2>
+  <ol>
+    <li>
+      <h3><del>JavaScript<del></h3>
+      <p>brief history and language introduction</p>
+    </li>
+    <li>
+      <h3><abbr title="Document Object Model">DOM</abbr></h3>
+      <p>programmatic access to the <abbr title="HyperText Markup Language">HTML</abbr> tree</p>
+    </li>
+    <li>
+      <h3>Events</h3>
+      <p>listening and reacting to changes</p>
+    </li>
+    <li>
+      <h3>Ajax</h3>
+      <p><abbr title="HyperText Transfer Protocol">HTTP</abbr> requests without page reloads</p>
+    </li>
+  </ol>
+</section>
+
+<section class="slide">
+  <h2>DOM: Document Object Model</h2>
+  <p>A standardized API for querying and modifying XML/HTML documents.</p>
+</section>
+
+<section class="slide">
+  <h2>References</h2>
+  <ul style="margin-bottom: 0;">
+    <li><a href="https://developer.mozilla.org/en-US/">Mozilla Developer Network</a></li>
+  </ul>
+  <ul class="slide">
+    <li><a href="https://developer.mozilla.org/en/A_re-introduction_to_JavaScript">https://developer.mozilla.org/en/A_re-introduction_to_JavaScript</a></li>
+    <li><a href="http://www.crockford.com/javascript/survey.html">http://www.crockford.com/javascript/survey.html</a></li>
+    <li><a href="http://wtfjs.com/">http://wtfjs.com/</a></li>
+    <li><a href="http://caniuse.com/">http://caniuse.com/</a></li>
+    <li><a href="http://kangax.github.com/es5-compat-table/">http://kangax.github.com/es5-compat-table/</a></li>
+    <li><a href="http://www.hunlock.com/blogs/The_Complete_Javascript_Number_Reference">http://www.hunlock.com/blogs/The_Complete_Javascript_Number_Reference</a></li>
+    <li><a href="http://quirksmode.org/compatibility.html">http://quirksmode.org/compatibility.html</a></li>
+    <li><a href="http://eloquentjavascript.net/">http://eloquentjavascript.net/</a></li>
+    <li><a href="http://www.javascriptexamples.org/2011/01/04/what-values-are-equivalent-to-false-in-javascript/">http://www.javascriptexamples.org/2011/01/04/what-values-are-equivalent-to-false-in-javascript/</a></li>
+  </ul>
+</section>
+
+<p class="deck-status">
+  <span class="deck-status-current"></span> / <span class="deck-status-total"></span>
+</p>
+
+<script src="deck.js/jquery-1.7.min.js"></script>
+
+<!-- Deck Core and extensions -->
+<script src="deck.js/core/deck.core.js"></script>
+<script src="deck.js/extensions/hash/deck.hash.js"></script>
+<script src="deck.js/extensions/status/deck.status.js"></script>
+<script>
+$(function () {
+  $.deck(".slide");
+});
+</script>
+
+</body>
+</html>
