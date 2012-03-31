@@ -1,0 +1,29 @@
+# THE JS documentation
+https://developer.mozilla.org/en/DOM
+
+# Things that are different in JS compared to C or Java
+http://www.crockford.com/javascript/survey.html
+
+# Fucked up things in JS. Or so they appear.
+http://wtfjs.com/
+
+# Can I use that feature in browser X?
+http://caniuse.com/
+
+# The JS language is currently evolving, and new syntax or APIs are being
+# added to the standard library. This table will tell you whether you can
+# use them in browser X.
+http://kangax.github.com/es5-compat-table/
+
+http://www.hunlock.com/blogs/The_Complete_Javascript_Number_Reference
+
+# Lots and lots of compatibility tables and tutorials about JS, HTML,
+# CSS, and mobile web development. The name comes from the old way of
+# rendering pages I was telling you about: quirks mode.
+http://quirksmode.org/
+
+# A free, online book on JavaScript
+http://eloquentjavascript.net/
+
+# Truthiness and falseness in JS
+http://www.javascriptexamples.org/2011/01/04/what-values-are-equivalent-to-false-in-javascript/

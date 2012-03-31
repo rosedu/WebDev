@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Event Delegation</title>
+<style type="text/css">
+ul { border: solid red 1px; }
+li { border: solid green 1px; }
+</style>
+</head>
+<body>
+
+<ul>
+  <li>item 1</li>
+  <li>item 2</li>
+  <li>item 3</li>
+  <li>item 4</li>
+  <li>item 5</li>
+</ul>
+
+<script>
+// factory function for event listeners
+var makeListenerWithIndex = function (index) {
+  return function (event) {
+    console.log(index);
+  };
+};
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  var lis, i, max, j;
+
+  // Closures within loops
+  //
+  lis = document.querySelectorAll("li");
+  for (i=0, max=lis.length; i<max; i++) {
+    // j = i;
+    //
+    // (function (scoped_i) {
+    //
+    //   lis[i].addEventListener("click", function (event) {
+    //     console.log(scoped_i);
+    //   }, false);
+    //
+    // })(i);
+
+    // alternate method using a higher-order function
+    lis[i].addEventListener("click", makeListenerWithIndex(i), false);
+  }
+
+  // Without event delegation
+  //
+  // var lis = document.querySelectorAll("li");
+  //
+  // for (var i=0, max=lis.length; i<max; i++) {
+  //   lis[i].addEventListener("click", function (event) {
+  //     console.log(this.textContent);
+  //     console.log(event.target.textContent);
+  //     console.log(event.currentTarget.textContent);
+  //   }, false);
+  // }
+
+  // With event delegation
+  //
+  // var ul = document.querySelector("ul");
+  // ul.addEventListener("click", function (event) {
+  //   console.log(event.target);
+  //   console.log(event.currentTarget);
+  //   if (event.target.nodeName === "LI") {
+  //     console.log(event.target.textContent);
+  //   }
+  //
+  // }, false);
+
+}, false);
+</script>
+
+</body>
+</html>
