@@ -42,7 +42,7 @@
       </p>
       <p>
         <label for="description">Descrierea problemei:</label>
-        <textarea cols="80" rows="8" id="description" name="question[content]"></textarea> 
+        <textarea cols="80" rows="8" id="description" name="question[content]"></textarea>
       </p>
       <p>
         <label>Din categoria:</label>
@@ -85,8 +85,29 @@
   </section>
   <!-- <script src="/javascripts/jquery.min.js"></script> -->
   <script>
+    var $ = function (selector) {
+      return document.querySelector(selector);
+    };
   
-  
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+      var addQuestion = $(".btn-add_question");
+      var cancelQuestion = $(".btn-cancel_question");
+      var panel = $(".add_question");
+
+      addQuestion.addEventListener("click", function (event) {
+        panel.style.display = "block";
+        addQuestion.style.display = "none";
+        event.preventDefault();
+      });
+
+      cancelQuestion.addEventListener("click", function (event) {
+        panel.style.display = "none";
+        addQuestion.style.display = "block";
+        event.preventDefault();
+      });
+    });
+
     // $(document).ready(function(){
     //   $(".btn-add_question").click(function(e) {
     //     e.preventDefault();
