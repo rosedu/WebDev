@@ -8,7 +8,6 @@
 		<meta charset="UTF-8" />
 		<title>miniflow</title>
 		<link href="/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
 	</head>
 <body class="questions_index">
   <section class="header">
@@ -84,19 +83,22 @@
     This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.<br />
     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="/images/creative-commons.png" /></a>
   </section>
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $(".btn-add_question").click(function(e) {
-        e.preventDefault();
-        $(this).fadeOut(400);
-        $(".add_question").slideDown(400);
-      });
-      $(".btn-cancel_question").click(function(e) {
-        e.preventDefault();
-        $(".btn-add_question").fadeIn(400);
-        $(".add_question").slideUp(400);
-      })
-    });
+  <!-- <script src="/javascripts/jquery.min.js"></script> -->
+  <script>
+  
+  
+    // $(document).ready(function(){
+    //   $(".btn-add_question").click(function(e) {
+    //     e.preventDefault();
+    //     $(this).fadeOut(400);
+    //     $(".add_question").slideDown(400);
+    //   });
+    //   $(".btn-cancel_question").click(function(e) {
+    //     e.preventDefault();
+    //     $(".btn-add_question").fadeIn(400);
+    //     $(".add_question").slideUp(400);
+    //   })
+    // });
   </script>
 </body>
 </html>
