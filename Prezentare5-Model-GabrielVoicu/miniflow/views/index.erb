@@ -86,24 +86,43 @@
   <!-- <script src="/javascripts/jquery.min.js"></script> -->
   <script>
     var $ = function (selector) {
-      return document.querySelector(selector);
-    };
-  
-    document.addEventListener("DOMContentLoaded", function (event) {
+      var obj = typeof selector === "string"
+              ? document.querySelector(selector)
+              : selector;
 
+      obj.ready = function (listener) {
+        obj.addEventListener("DOMContentLoaded", listener);
+      };
+
+      obj.click = function (listener) {
+        obj.addEventListener("click", listener);
+      };
+
+      obj.hide = function () {
+        obj.style.display = "none";
+      };
+
+      obj.show = function () {
+        obj.style.display = "block";
+      };
+
+      return obj;
+    };
+
+    $(document).ready(function (event) {
       var addQuestion = $(".btn-add_question");
       var cancelQuestion = $(".btn-cancel_question");
       var panel = $(".add_question");
 
-      addQuestion.addEventListener("click", function (event) {
-        panel.style.display = "block";
-        addQuestion.style.display = "none";
+      addQuestion.click(function (event) {
+        panel.show();
+        addQuestion.hide();
         event.preventDefault();
       });
 
-      cancelQuestion.addEventListener("click", function (event) {
-        panel.style.display = "none";
-        addQuestion.style.display = "block";
+      cancelQuestion.click(function (event) {
+        panel.hide();
+        addQuestion.show();
         event.preventDefault();
       });
     });
