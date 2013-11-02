@@ -1,0 +1,66 @@
+body {
+  padding: 3px 0 0 0;
+  background: #F4EAE0 url('/img/bg.gif') repeat-x;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 16px;
+}
+
+#wrapper {
+  margin: 10% auto 0;
+  padding: 20px;
+
+  width: 500px;;
+
+     -moz-box-shadow: 2px 2px #c1b8b7;
+  -webkit-box-shadow: 2px 2px #c1b8c7;
+          box-shadow: 2px 2px #c1b8c7;
+
+  background: #fff;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+
+#url_original {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+
+  padding: 5px;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+p.success, p.error {
+	padding: 10px 5px;
+	
+	text-align: center;
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+p.success {
+	margin-bottom: 10px;
+		
+	border: 2px solid #73880A;
+	background: #CDEB8B;
+}
+
+p.error {
+	border: 2px solid #B02B2C;
+	background: #FFFF88;
+}
+
+p.url {
+	margin-top: 20px;
+	text-align: center;
+}
+
+code {
+	display: block;
+	margin: 10px;
+	font-family: "Source Code Pro", "Monaco", "Courier New", "Courier", fixed;
+}

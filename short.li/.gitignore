@@ -1,0 +1,4 @@
+.bundle
+.rbenv-version
+bin
+db/*.db
